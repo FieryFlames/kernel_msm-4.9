@@ -1,0 +1,165 @@
+&ts_int_active {
+    config {
+	    drive-strength = <2>;
+	    bias-disable;
+	    /delete-property/ bias-pull-up;
+    };
+};
+
+&ts_int_suspend {
+    config {
+	    bias-disable;
+	    /delete-property/ bias-pull-down;
+    };
+};
+
+&mdss_dsi_active {
+    mux {
+	    pins = "gpio60", "gpio46";
+    };
+    config {
+	    pins = "gpio60", "gpio46";
+	    /delete-property/ output-high;
+    };
+};
+
+&mdss_dsi_suspend {
+    mux {
+	    pins = "gpio60", "gpio46";
+    };
+    config {
+	    pins = "gpio60", "gpio46";
+    };
+};
+
+&sdc2_clk_on {
+    config {
+	    drive-strength = <12>;
+    };
+};
+
+&cross_conn_det_act {
+    config {
+	    pins = "gpio45";
+    };
+    mux {
+	    pins = "gpio45";
+    };
+};
+
+&cross_conn_det_sus {
+    config {
+	    pins = "gpio45";
+    };
+    mux {
+	    pins = "gpio45";
+    };
+};
+
+&pri_tlmm_ws_act {
+    config {
+	    drive-strength = <8>;
+	    /delete-property/ bias-disable;
+	    /delete-property/ output-high;
+    };
+};
+
+/* Custom */
+&tlmm {
+	/* add pingrp for goodix touch */
+	ts_int_default: ts_int_default {
+		mux {
+			pins = "gpio65";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio65";
+			drive-strength = <16>;
+			/*bias-pull-up;*/
+			input-enable;
+			bias-disable;
+		};
+	};
+
+	ts_int_output_high: ts_int_output_high {
+		mux {
+			pins = "gpio65";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio65";
+			output-high;
+		};
+	};
+
+	ts_int_output_low: ts_int_output_low {
+		mux {
+			pins = "gpio65";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio65";
+			output-low;
+		};
+	};
+
+	ts_int_input: ts_int_input {
+		mux {
+			pins = "gpio65";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio65";
+			input-enable;
+			bias-disable;
+		};
+	};
+
+	ts_rst_default: ts_rst_default {
+		mux {
+			pins = "gpio64";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio64";
+			drive-strength = <16>;
+			/*bias-pull-up;*/
+			input-enable;
+			bias-disable;
+		};
+	};
+
+	ts_rst_output_high: ts_rst_output_high {
+		mux {
+			pins = "gpio64";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio64";
+			output-high;
+		};
+	};
+
+	ts_rst_output_low: ts_rst_output_low {
+		mux {
+			pins = "gpio64";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio64";
+			output-low;
+		};
+	};
+
+	ts_rst_input: ts_rst_input {
+		mux {
+			pins = "gpio64";
+			function = "gpio";
+		};
+		config {
+			pins = "gpio64";
+			input-enable;
+			bias-disable;
+		};
+	};
+};

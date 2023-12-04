@@ -1,0 +1,26 @@
+#include "pinctrl.dtsi"
+
+//#include "audio.dtsi"
+#include "battery_usb.dtsi"
+//#include "camera.dtsi"
+#include "display.dtsi"
+//#include "led.dtsi"
+//#include "misc.dtsi"
+//#include "pm8937.dtsi"
+//#include "pmi8937.dtsi"
+#include "regulator.dtsi"
+//#include "soc.dtsi"
+#include "touchscreen.dtsi"
+//#include "vibrator.dtsi"
+
+/ {
+	reserved-memory {
+		ramoops: ramoops {
+			compatible = "ramoops";
+			reg = <0 0xb0000000 0 0x800000>;
+			record-size = <0x200000>;
+			console-size = <0x200000>;
+			pmsg-size = <0x200000>;
+		};
+	};
+};

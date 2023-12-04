@@ -1,0 +1,84 @@
+/* From stock msm8940-pmi8937-mtp.dts */
+&i2c_3 {
+	status = "ok";
+
+	goodix_ts@5d{
+		compatible = "goodix,gt9xx-mi8937";
+		status = "okay";
+		reg = <0x5d>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <65 0x2008>;
+		vdd_ana-supply = <&pm8937_l10>;
+		vcc_i2c-supply = <&pm8937_l6>;
+		pinctrl-names = "gdix_ts_int_default", "gdix_ts_int_output_low",
+				"gdix_ts_int_output_high", "gdix_ts_int_input",
+				"gdix_ts_rst_default", "gdix_ts_rst_output_low",
+				"gdix_ts_rst_output_high", "gdix_ts_rst_input";
+		pinctrl-0 = <&ts_int_default>;
+		pinctrl-1 = <&ts_int_output_low>;
+		pinctrl-2 = <&ts_int_output_high>;
+		pinctrl-3 = <&ts_int_input>;
+		pinctrl-4 = <&ts_rst_default>;
+		pinctrl-5 = <&ts_rst_output_low>;
+		pinctrl-6 = <&ts_rst_output_high>;
+		pinctrl-7 = <&ts_rst_input>;
+		reset-gpios = <&tlmm 64 0x00>;
+		irq-gpios = <&tlmm 65 0x2008>;
+		irq-flags = <1>;
+		touchscreen-max-id = <11>;
+		touchscreen-size-x = <800>;
+		touchscreen-size-y = <1280>;
+		touchscreen-max-w = <512>;
+		touchscreen-max-p = <512>;
+		goodix,type-a-report = <0>;
+		goodix,driver-send-cfg = <1>;
+		goodix,wakeup-with-reset = <0>;
+		goodix,resume-in-workqueue = <1>;
+		goodix,int-sync = <1>;
+		goodix,swap-x2y = <0>;
+		goodix,esd-protect = <1>;
+		goodix,pen-suppress-finger = <0>;
+		goodix,auto-update = <1>;
+		goodix,auto-update-cfg = <0>;
+		goodix,power-off-sleep = <0>;
+		goodix,slide-wakeup = <1>;
+        goodix,cfg-group0 = [
+            54 20 03 00 05 0a 34 12 21 c4 5a
+            05 50 3c 3a 25 00 00 1f c8 22 22
+            00 16 19 1c 14 95 35 ff 1c 1e 79
+            17 2b 65 00 03 33 1c 14 15 15 9c
+            83 03 3c 3c 2b 08 1b 14 28 94 c5
+            83 19 3c 23 04 ae 15 60 9a 18 aa
+            87 1c 88 79 20 20 6b 25 00 6b 90
+            46 78 4a 0a 80 30 18 20 12 33 a0
+            33 43 0a 62 43 05 0f 00 00 04 88
+            78 46 18 37 88 00 02 28 14 00 00
+            3c 28 1d 1c 1b 1a 19 18 17 16 15
+            14 13 12 11 10 0f 0e 0d 0c 0b 0a
+            09 08 07 06 05 04 03 02 01 00 2a
+            29 28 27 26 25 24 23 22 21 20 1f
+            1e 1d 1c 1b 19 18 17 16 15 14 13
+            12 11 10 0f 0e 0d 0c 0b 0a 09 08
+            07 06 05 04 03 02 01 00 63 01
+        ];
+        goodix,cfg-group2 = [
+            55 20 03 00 05 0a 34 12 22 c4 5a
+            05 50 3c 3a 23 00 00 1f c8 22 22 
+            00 16 19 1c 14 95 35 ff 1c 1e 7a 
+            17 2c 65 09 03 33 1c 14 15 15 9c 
+            83 03 3c 3c 2b 08 1b 14 28 8f c5 
+            83 19 32 14 04 ae 15 60 9a 18 aa 
+            87 1c 88 79 20 20 6b 25 00 6b 90 
+            46 78 4a 0a 80 30 18 20 12 33 a0 
+            33 43 0a 62 43 05 0f 00 00 04 88 
+            78 46 18 37 88 00 02 28 1e 00 00 
+            5a 46 1d 1c 1b 1a 19 18 17 16 15 
+            14 13 12 11 10 0f 0e 0d 0c 0b 0a 
+            09 08 07 06 05 04 03 02 01 00 2a 
+            29 28 27 26 25 24 23 22 21 20 1f 
+            1e 1d 1c 1b 19 18 17 16 15 14 13 
+            12 11 10 0f 0e 0d 0c 0b 0a 09 08 
+            07 06 05 04 03 02 01 00 30 01
+        ];
+	};
+};

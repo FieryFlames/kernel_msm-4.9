@@ -1,0 +1,7 @@
+#include "panel/dsi-panel-boe-jd9364-wxga-video.dtsi"
+#include "panel/dsi-panel-boe-nt35521s-wxga-video.dtsi"
+#include "panel/dsi-panel-nt35521s-wxga-video.dtsi"
+
+&mdss_dsi0 {
+    qcom,platform-enable-gpio = <&tlmm 46 0>;
+};
